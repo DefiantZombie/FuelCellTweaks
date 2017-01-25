@@ -1,1 +1,1 @@
-[KSP Forum Post]()
+[KSP Forum Post](http://forum.kerbalspaceprogram.com/index.php?/topic/155547-12-fuelcelltweaks-v100/)

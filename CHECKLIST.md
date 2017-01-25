@@ -14,4 +14,4 @@
 * Create release tag and push to Github
 * Update Github release info and add binary
 * Update AVC information on [KSP AVC Online](http://ksp-avc.cybutek.net/?page=My_Versions)
-* Post update in the forum thread [KSP Forums]()
+* Post update in the forum thread [KSP Forums](http://forum.kerbalspaceprogram.com/index.php?/topic/155547-12-fuelcelltweaks-v100/)
