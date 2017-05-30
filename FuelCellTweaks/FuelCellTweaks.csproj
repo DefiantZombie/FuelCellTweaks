@@ -55,11 +55,11 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>call xcopy /Y "$(TargetPath)" "E:\KSP\1.3-dev\GameData\Squidsoft Collective\$(ProjectName)\"
+    <PostBuildEvent>call xcopy /Y "$(TargetPath)" "C:\KSP\1.3-dev\GameData\Squidsoft Collective\$(ProjectName)\"
 if $(ConfigurationName) == Release call xcopy /Y "$(TargetPath)" "$(SolutionDir)Resources\GameData\Squidsoft Collective\$(ProjectName)\"
 if $(ConfigurationName) == Debug call "E:\Development\Utilities\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
-if $(ConfigurationName) == Debug call xcopy /Y "$(TargetDir)$(TargetName).pdb" "E:\KSP\1.3-dev\GameData\Squidsoft Collective\$(ProjectName)\"
-if $(ConfigurationName) == Debug call xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "E:\KSP\1.3-dev\GameData\Squidsoft Collective\$(ProjectName)\"
+if $(ConfigurationName) == Debug call xcopy /Y "$(TargetDir)$(TargetName).pdb" "C:\KSP\1.3-dev\GameData\Squidsoft Collective\$(ProjectName)\"
+if $(ConfigurationName) == Debug call xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "C:\KSP\1.3-dev\GameData\Squidsoft Collective\$(ProjectName)\"
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
