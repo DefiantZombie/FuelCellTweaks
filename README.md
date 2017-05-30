@@ -1,5 +1,3 @@
-# **THIS MOD IS NOT SUPPORTED IN KSP 1.3PRE**
-
 # FuelCellTweaks
 
 This mod adds additional features to fuel cell parts.
@@ -9,7 +7,7 @@ This mod includes version checking using MiniAVC. If you opt-in, it will use the
 ## Installation
 
 1. Install [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?/topic/50533-121-module-manager-275-november-29th-2016-better-late-than-never/) or use the provided version (may be out of date!)
-2. Copy FuelCellTweaks into your KSP/GameData folder.
+2. Copy Squidsoft Collective into your KSP/GameData folder. OS X Note: You will have to go one level deeper and copy/merge the folders inside Squidsoft Collective into your KSP/GameData/Squidsoft Collective folder.
 
 ## Usage
 
@@ -21,6 +19,10 @@ This mod includes version checking using MiniAVC. If you opt-in, it will use the
 
 See the changelog.txt file or git history.
 
+## Localization
+
+Localization is supported. Support documents will be provided in the future for submitting translations.
+
 ## Special Thanks
 
 - DasValdez for always being inspiring and classy. https://twitch.tv/DasValdez
@@ -28,5 +30,4 @@ See the changelog.txt file or git history.
 
 ## License
 
-GNU General Public License v3, 29 June 2007
 See LICENSE.md for more details.

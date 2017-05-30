@@ -7,7 +7,7 @@
 ### Build
 * Build solution in release mode
 * Create zip file from `Resources\GameData\` (<project name> folder)
-* Name the zip file `<project name>-v<major>.<minor>.<patch>.<build>.zip` (eg <project name>-v1.0.0.0.zip)
+* Name the zip file `<project name>-ksp<version>-v<major>.<minor>.<patch>.<build>.zip` (eg <project name>-ksp1.3-v1.0.0.0.zip)
 
 ### Post-Build
 * Verify Github master matches local master
