@@ -6,7 +6,10 @@ This mod includes version checking using MiniAVC. If you opt-in, it will use the
 
 ## Installation
 
-1. Install [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?/topic/50533-121-module-manager-275-november-29th-2016-better-late-than-never/) or use the provided version (may be out of date!)
+1. !!!IMPORTANT!!! If going from KSP 1.2.2 to 1.3, delete the old Collide-o-Scope folder.
+
+2. Install [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?/topic/50533-121-module-manager-275-november-29th-2016-better-late-than-never/) or use the provided version (may be out of date!)
+
 2. Copy Squidsoft Collective into your KSP/GameData folder. OS X Note: You will have to go one level deeper and copy/merge the folders inside Squidsoft Collective into your KSP/GameData/Squidsoft Collective folder.
 
 ## Usage
