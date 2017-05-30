@@ -5,7 +5,7 @@ namespace FuelCellTweaks
 {
     public class FuelCellTweaks : PartModule
     {
-        private const string FieldName = "Output Cap.";
+        private const string FieldName = "FillLimit";
 
         [KSPField(advancedTweakable = true, isPersistant = true, guiActive = true, guiActiveEditor = true, guiName = FieldName), UI_FloatRange(minValue = 0.1f, maxValue = 1.0f, stepIncrement = 0.05f, scene = UI_Scene.All, affectSymCounterparts = UI_Scene.All)]
         public float FillLimit = 0.95f;
@@ -27,7 +27,7 @@ namespace FuelCellTweaks
 
             _converterModule.FillAmount = FillLimit;
 
-            _fillLimitField = Fields.Cast<BaseField>().FirstOrDefault(f => f.guiName == FieldName);
+            _fillLimitField = Fields.Cast<BaseField>().FirstOrDefault(f => f.name == FieldName);
             if (_fillLimitField == null)
             {
                 Debug.LogError("[FCT] FillLimit field not found.");
