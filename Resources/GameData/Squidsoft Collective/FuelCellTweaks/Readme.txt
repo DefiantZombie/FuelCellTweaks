@@ -2,8 +2,6 @@
 
 This mod adds additional features to fuel cell parts.
 
-This mod includes version checking using MiniAVC. If you opt-in, it will use the internet to check whether there is a new version available. Data is only read from the internet and no personal information is sent. For a more comprehensive version checking experience, please download the [KSP-AVC Plugin](http://forum.kerbalspaceprogram.com/index.php?/topic/72169-12-ksp-avc-add-on-version-checker-plugin-1162-miniavc-ksp-avc-online-2016-10-13/).
-
 ## Installation
 
 1. !!!IMPORTANT!!! If going from KSP 1.2.2 to 1.3, delete the old Collide-o-Scope folder.
