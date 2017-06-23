@@ -1,3 +1,6 @@
+1.0.4.0
+	Added compatibility for parts containing "Fuel Cell" anywhere in the title. (Merge PR #5)
+	Fixed part config FillAmount being overwritten in the editors. (Fixes #6)
 1.0.3.0
 	Fixed readme install steps.
 1.0.2.0
