@@ -30,7 +30,10 @@ namespace FuelCellTweaks
                 return;
             }
 
-            _converterModule.FillAmount = FillLimit;
+            if (HighLogic.LoadedScene == GameScenes.EDITOR)
+                FillLimit = _converterModule.FillAmount;
+            else
+                _converterModule.FillAmount = FillLimit;
 
             _fillLimitField = Fields.Cast<BaseField>().FirstOrDefault(f => f.name == FieldName);
             if (_fillLimitField == null)
