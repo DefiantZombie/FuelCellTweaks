@@ -55,12 +55,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>call xcopy /Y "$(TargetPath)" "%25KSPDEV%25\GameData\Squidsoft Collective\$(ProjectName)\"
-if $(ConfigurationName) == Release call xcopy /Y "$(TargetPath)" "$(SolutionDir)Resources\GameData\Squidsoft Collective\$(ProjectName)\"
-if $(ConfigurationName) == Debug call "%25DEV_PATH%25\Utilities\pdb2mdb\pdb2mdb.exe" "$(TargetFileName)"
-if $(ConfigurationName) == Debug call xcopy /Y "$(TargetDir)$(TargetName).pdb" "%25KSPDEV%25\GameData\Squidsoft Collective\$(ProjectName)\"
-if $(ConfigurationName) == Debug call xcopy /Y "$(TargetDir)$(TargetName).dll.mdb" "%25KSPDEV%25\GameData\Squidsoft Collective\$(ProjectName)\"
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
