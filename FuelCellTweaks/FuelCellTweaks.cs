@@ -15,6 +15,12 @@ namespace FuelCellTweaks
             affectSymCounterparts = UI_Scene.All)]
         public float FillLimit = 0.95f;
 
+        [KSPField(advancedTweakable = true, isPersistant = true,
+            guiActive = true, guiActiveEditor = true,
+            guiName = "#SSC_FCT_000002")]
+        [UI_Toggle]
+        public bool EnableOnLaunch = false;
+
         private ModuleResourceConverter _converterModule;
 
         private BaseField _fillLimitField;
@@ -43,6 +49,13 @@ namespace FuelCellTweaks
             }
 
             _fillLimitField.OnValueModified += FillLimitChanged;
+
+            if (HighLogic.LoadedScene == GameScenes.FLIGHT)
+            {
+                Fields["EnableOnLaunch"].guiActive = false;
+                if(EnableOnLaunch)
+                    _converterModule.StartResourceConverter();
+            }
         }
 
         public void FillLimitChanged(object o)
