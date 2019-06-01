@@ -4,7 +4,7 @@ This mod adds additional features to fuel cell parts.
 
 ## Installation
 
-1. Copy Squidsoft Collective into your KSP/GameData folder. OS X Note: You will have to go one level deeper and copy/merge the folders inside Squidsoft Collective into your KSP/GameData/Squidsoft Collective folder.
+1. Copy contents of GameData into your KSP/GameData folder. OS X Note: Do not blindly drop GameData and any sub folders. You may overwrite/remove ALL of the GameData. Drop files and folders slowly and carefully.
 
 ## Usage
 
