@@ -12,6 +12,10 @@ This mod adds additional features to fuel cell parts.
 1. Enable Advanced Tweakables for your save.
 2. Right-click on a fuel cell and adjust the output capacity.
 
+#### Start On Launch
+1. Enable Advanced Tweakables for your save.
+2. Right-click on a fuel cell and enable the option.
+
 ## History
 
 See the changelog.txt file or git history.
