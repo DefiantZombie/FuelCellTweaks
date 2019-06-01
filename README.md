@@ -4,9 +4,7 @@ This mod adds additional features to fuel cell parts.
 
 ## Installation
 
-1. Install [ModuleManager](http://forum.kerbalspaceprogram.com/index.php?/topic/50533-121-module-manager-275-november-29th-2016-better-late-than-never/) or use the provided version (may be out of date!)
-
-2. Copy Squidsoft Collective into your KSP/GameData folder. OS X Note: You will have to go one level deeper and copy/merge the folders inside Squidsoft Collective into your KSP/GameData/Squidsoft Collective folder.
+1. Copy Squidsoft Collective into your KSP/GameData folder. OS X Note: You will have to go one level deeper and copy/merge the folders inside Squidsoft Collective into your KSP/GameData/Squidsoft Collective folder.
 
 ## Usage
 
