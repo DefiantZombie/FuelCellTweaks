@@ -1,2 +1,2 @@
-- Moved FuelCellTweaks to CI/CD build setup. No code changes required.
-- Updated ModuleManager to 4.0.2
+- New feature: Added Start On Launch option. Only available in SPH/VAB. Will cause the Fuel Cell/Resource Converter to start automatically when a vehicle is launched. (#4)
+- Various fixes to the readme. (#2, #3)
