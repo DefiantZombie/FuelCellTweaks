@@ -1,0 +1,101 @@
+trigger:
+  tags:
+    include:
+    - v*
+  branches:
+    include:
+    - master
+    - develop
+    - release/*
+    - hotfix/*
+
+variables:
+- name: BuildPlatform
+  value: 'any cpu'
+- name: BuildConfiguration
+  value: 'release'
+- name: KSPVersion
+  value: '1.8.0'
+- name: ProjectName
+  value: 'FuelCellTweaks'
+- name: AuthConnection
+  value: 'DefiantZombie (OAuth)'
+
+stages:
+- stage: build
+  displayName: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+    - task: NuGetCommand@2
+      displayName: 'NuGet restore'
+
+    - task: gittools.gitversion.gitversion-task.GitVersion@4
+      displayName: GitVersion
+      inputs:
+        updateAssemblyInfo: true
+        preferBundledVersion: false
+
+    - task: VSBuild@1
+      displayName: 'Build solution **\*.sln'
+      inputs:
+        vsVersion: 16.0
+        platform: '$(BuildPlatform)'
+        configuration: '$(BuildConfiguration)'
+
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(Build.StagingDirectory)'
+      inputs:
+        Contents: |
+          GameData\**
+          CHANGELOG.MD
+          LICENSE.MD
+          README.MD
+        TargetFolder: '$(Build.StagingDirectory)'
+        CleanTargetFolder: true
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: build_archive'
+      inputs:
+        ArtifactName: 'build_archive'
+
+- stage: production
+  displayName: Release
+  dependsOn: build
+  condition: |
+    and(
+      succeeded(),
+      startsWith(variables['Build.SourceBranch'], 'refs/tags/'),
+      not(contains(variables['Build.SourceBranch'], 'alpha')),
+      not(contains(variables['Build.SourceBranch'], 'beta'))
+    )
+  jobs:
+  - template: ci/templates/release-job.yml
+    parameters:
+      gitHubConnection: $(AuthConnection)
+      preRelease: false
+      kspVersion: $(KSPVersion)
+      projectName: $(ProjectName)
+
+
+- stage: pre_release
+  displayName: Pre-Release
+  dependsOn: build
+  condition: |
+    and(
+      succeeded(),
+      startsWith(variables['Build.SourceBranch'], 'refs/tags/'),
+      or(
+        contains(variables['Build.SourceBranch'], 'alpha'),
+        contains(variables['Build.SourceBranch'], 'beta')
+      )
+    )
+  jobs:
+  - template: ci/templates/release-job.yml
+    parameters:
+      gitHubConnection: $(AuthConnection)
+      preRelease: true
+      kspVersion: $(KSPVersion)
+      projectName: $(ProjectName)
