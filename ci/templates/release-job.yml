@@ -1,0 +1,39 @@
+parameters:
+  gitHubConnection: ''
+  preRelease: false
+  kspVersion: ''
+  projectName: ''
+
+jobs:
+- job: Release
+  pool:
+    vmImage: 'windows-latest'
+  steps:
+  - task: DownloadBuildArtifacts@0
+    inputs:
+      buildType: 'current'
+      downloadType: 'single'
+      artifactName: 'build_archive'
+      downloadPath: '$(System.ArtifactsDirectory)'
+
+  - task: ArchiveFiles@2
+    displayName: 'Archive $(System.ArtifactsDirectory)/build_archive'
+    inputs:
+      rootFolderOrFile: '$(System.ArtifactsDirectory)/build_archive'
+      includeRootFolder: false
+      archiveFile: '${{ parameters.projectName }}-ksp${{ parameters.kspVersion }}-$(Build.BuildNumber).zip'
+
+  - task: GitHubRelease@0
+    displayName: 'GitHub release (create)'
+    inputs:
+      gitHubConnection: ${{ parameters.gitHubConnection }}
+      repositoryName: $(Build.Repository.Name)
+      action: 'create'
+      target: '$(Build.SourceVersion)'
+      tagSource: 'auto'
+      title: 'ksp${{ parameters.kspVersion }}-$(Build.BuildNumber)'
+      releaseNotesSource: 'file'
+      releaseNotesFile: '$(System.ArtifactsDirectory)/build_archive/CHANGELOG.md'
+      assets: '${{ parameters.projectName }}-ksp${{ parameters.kspVersion }}-$(Build.BuildNumber).zip'
+      isPreRelease: ${{ parameters.preRelease }}
+      addChangeLog: false
