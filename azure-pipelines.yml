@@ -15,7 +15,7 @@ variables:
 - name: BuildConfiguration
   value: 'release'
 - name: KSPVersion
-  value: '1.8.0'
+  value: '1.10.0'
 - name: ProjectName
   value: 'FuelCellTweaks'
 - name: AuthConnection
@@ -31,14 +31,17 @@ stages:
     steps:
     - checkout: self
       lfs: true
+
+    - task: GitVersion@5
+      inputs:
+        runtime: 'full'
+        updateAssemblyInfo: true
+
+    - script: |
+        echo ##vso[build.updatebuildnumber]$(GitVersion.SemVer)
+
     - task: NuGetCommand@2
       displayName: 'NuGet restore'
-
-    - task: gittools.gitversion.gitversion-task.GitVersion@4
-      displayName: GitVersion
-      inputs:
-        updateAssemblyInfo: true
-        preferBundledVersion: false
 
     - task: VSBuild@1
       displayName: 'Build solution **\*.sln'
@@ -80,7 +83,6 @@ stages:
       preRelease: false
       kspVersion: $(KSPVersion)
       projectName: $(ProjectName)
-
 
 - stage: pre_release
   displayName: Pre-Release
